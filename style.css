@@ -32,10 +32,25 @@
 }
 
 
+
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    scroll-padding-top: 100px;
 }
 
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
 
 body {
 
@@ -108,7 +123,7 @@ button {
     height: 86px;
 
     padding:
-        0 5%;
+        20px 5%;
 
     display: flex;
 
@@ -147,48 +162,67 @@ button {
 ========================================================= */
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 
-    display: flex;
+    text-decoration: none;
+    color: #ffffff;
 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    position: relative;
+    z-index: 20;
+
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+/* Logo image */
+.logo-img {
+    width: 192px;
+    height: 192px;
+
+    object-fit: contain;
+    display: block;
+
+    filter: drop-shadow(0 4px 10px rgba(67, 170, 255, 0.18));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.06);
+
+    filter: drop-shadow(
+        0 0 12px rgba(67, 170, 255, 0.45)
+    );
+}
+
+/* Logo text */
+.logo-text {
+    display: inline-flex;
     align-items: center;
 
-    gap: 10px;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
+    color: #f5f9ff;
+    line-height: 1;
 }
 
-
-.logo-mark {
-
-    width: 30px;
-    height: 30px;
-
-    border:
-        1px solid var(--accent);
-
-    display: grid;
-
-    place-items: center;
-
-    color:
-        var(--accent);
-
-    font-size: 14px;
-
-    transform:
-        skew(-8deg);
-
-}
-
-
+/* Blue accent */
 .logo-dot {
-    color: var(--accent);
+    color: #55b9ff;
+    margin-left: 1px;
 }
+
+
 
 
 
@@ -326,13 +360,13 @@ button {
         /* Dark overlay over image */
         linear-gradient(
             110deg,
-            rgba(8, 9, 9, 0.72) 0%,
-            rgba(11, 13, 13, 0.62) 58%,
-            rgba(8, 9, 9, 0.48) 100%
+            rgba(8, 9, 9, 0.52) 0%,
+            rgba(11, 13, 13, 0.42) 58%,
+            rgba(8, 9, 9, 0.38) 100%
         ),
 
         /* Background image */
-        url("images/hero-banner.jpg") center center / cover no-repeat;
+        url("images/engin-diag.png") center center / cover no-repeat;
 
 }
 
@@ -496,7 +530,7 @@ h1 em {
         500px;
 
     color:
-        #9b9e9b;
+        var(--text);
 
     line-height:
         1.8;
@@ -1492,10 +1526,10 @@ h1 em {
 
      background:
         linear-gradient(
-            rgba(5, 10, 15, 0.82),
-            rgba(5, 10, 15, 0.52)
+            rgba(5, 10, 15, 0.62),
+            rgba(5, 10, 15, 0.42)
         ),
-        url("images/img.13.jpeg")
+        url("images/stand-up.png")
         center center / cover no-repeat;    
 
 }
@@ -1550,7 +1584,7 @@ h1 em {
         35px;
 
     color:
-        #808480;
+        #fff;
 
     line-height:
         1.9;
@@ -1628,8 +1662,8 @@ h1 em {
 .card-service-1 {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.78),
-            rgba(5, 12, 18, 0.68)
+            rgba(5, 12, 18, 0.48),
+            rgba(5, 12, 18, 0.48)
         ),
         url("images/panelbeating.jpeg")
         center / cover no-repeat;
@@ -1638,8 +1672,8 @@ h1 em {
 .card-service-2 {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.78),
-            rgba(5, 12, 18, 0.68)
+              rgba(5, 12, 18, 0.48),
+            rgba(5, 12, 18, 0.48)
         ),
         url("images/spraypainting.jpeg")
         center / cover no-repeat;
@@ -1648,8 +1682,8 @@ h1 em {
 .card-service-3 {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.78),
-            rgba(5, 12, 18, 0.68)
+              rgba(5, 12, 18, 0.48),
+            rgba(5, 12, 18, 0.48)
         ),
         url("images/dentrepair.jpg")
         center / cover no-repeat;
@@ -1658,10 +1692,10 @@ h1 em {
 .card-service-4 {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.78),
-            rgba(5, 12, 18, 0.68)
+            rgba(5, 12, 18, 0.48),
+            rgba(5, 12, 18, 0.48)
         ),
-        url("images/accidentrepair.jpeg")
+        url("images/toyota-crash.png")
         center / cover no-repeat;
 }
 
@@ -1760,7 +1794,7 @@ h1 em {
         12px;
 
     color:
-        #737773;
+    var(--text);
 
     line-height:
         1.7;
@@ -1811,10 +1845,10 @@ h1 em {
 
   background:
     linear-gradient(
-        rgba(13, 15, 15, 0.82),
-        rgba(13, 15, 15, 0.82)
+        rgba(13, 15, 15, 0.42),
+        rgba(13, 15, 15, 0.62)
     ),
-    url("images/panelbeating.jpg")
+    url("images/process.png")
     center / cover no-repeat;
 
 }
@@ -1832,7 +1866,7 @@ h1 em {
         );
 
     border-top:
-        1px solid var(--line);
+        1px solid var(--text);
 
 }
 
@@ -1843,7 +1877,10 @@ h1 em {
         45px 35px 20px;
 
     border-right:
-        1px solid var(--line);
+        1px solid var(--text);
+
+         border-left:
+        1px solid var(--text);
 
     min-height:
         260px;
@@ -1854,7 +1891,7 @@ h1 em {
 .process-item:first-child {
 
     border-left:
-        1px solid var(--line);
+        1px solid var(--text);
 
 }
 
@@ -1884,7 +1921,7 @@ h1 em {
 .process-item p {
 
     color:
-        #727672;
+        var(--text);
 
     font-size:
         12px;
@@ -1954,8 +1991,8 @@ h1 em {
 .image-one {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.35),
-            rgba(5, 12, 18, 0.55)
+            rgba(5, 12, 18, 0.15),
+            rgba(5, 12, 18, 0.45)
         ),
         url("images/full-restoration.1.jpeg")
         center / contain no-repeat;
@@ -1964,8 +2001,8 @@ h1 em {
 .image-two {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.35),
-            rgba(5, 12, 18, 0.55)
+            rgba(5, 12, 18, 0.15),
+            rgba(5, 12, 18, 0.45)
         ),
         url("images/spray.jpg")
         center / contain no-repeat;
@@ -1974,8 +2011,8 @@ h1 em {
 .image-three {
     background:
         linear-gradient(
-            rgba(5, 12, 18, 0.35),
-            rgba(5, 12, 18, 0.55)
+            rgba(5, 12, 18, 0.15),
+            rgba(5, 12, 18, 0.45)
         ),
         url("images/semless-dent.jpg")
         center / contain no-repeat;
@@ -2110,6 +2147,547 @@ h1 em {
 
 
 
+
+
+
+/* ================= MECHANICAL SERVICES ================= */
+
+.mechanical {
+    position: relative;
+    overflow: hidden;
+}
+
+.mechanical-banner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    min-height: 390px;
+    margin: 55px 0 35px;
+    overflow: hidden;
+    border: 1px solid rgba(120, 190, 255, 0.2);
+    border-radius: 22px;
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(43, 126, 205, 0.2),
+            transparent 40%
+        ),
+        linear-gradient(135deg, #111a24, #080c11);
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.22);
+}
+
+.mechanical-banner-content {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    padding: 55px;
+}
+
+.mechanical-tag {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    color: #8bc8ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.mechanical-tag .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 152px;
+    height: 146px;
+    padding: 5px;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    border-radius: 5px;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.mechanical-tag .logo-img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 0 5px rgba(85, 185, 255, 0.15)
+    );
+
+    transition: transform 0.3s ease;
+}
+
+.mechanical-banner h3 {
+    margin: 0 0 20px;
+    color: #f5f8fc;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.mechanical-banner h3 span {
+    color: #83c2ff;
+}
+
+.mechanical-banner-content p {
+    max-width: 430px;
+    margin-bottom: 28px;
+    color: #aab6c4;
+    line-height: 1.8;
+}
+
+.mechanical-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 340px;
+    overflow: hidden;
+    color: #8bc8ff;
+    background:
+        linear-gradient(
+            90deg,
+            #101923 0%,
+            rgba(16, 25, 35, 0.15) 100%
+            
+        );
+}
+
+.mechanical-ring {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(131, 194, 255, 0.23);
+    border-radius: 50%;
+}
+
+.ring-two {
+    width: 185px;
+    height: 185px;
+    border-style: dashed;
+    animation: mechanical-rotate 30s linear infinite;
+}
+
+.mechanical-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(131, 194, 255, 0.3);
+    border-radius: 30px;
+    background: rgba(73, 144, 209, 0.08);
+    box-shadow: 0 0 65px rgba(64, 154, 245, 0.15);
+    transform: rotate(-8deg);
+}
+
+.mechanical-icon svg {
+    width: 85px;
+    height: 85px;
+}
+
+.mechanical-caption {
+    position: absolute;
+    bottom: 28px;
+    color: #8194a8;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.mechanical-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.mechanical-card {
+    position: relative;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid rgba(155, 190, 220, 0.13);
+    border-radius: 16px;
+   
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.mechanical-1{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/engine-hd.png");
+
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+}
+.mechanical-2{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/service.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    
+}
+.mechanical-3{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/mechenical.4.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    
+}
+.mechanical-4{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/engine.2.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    
+}
+.mechanical-5{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/engine-diagnostics.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    
+}
+.mechanical-6{
+     background:
+        linear-gradient(
+            145deg,
+            rgba(3, 13, 24, 0.42),
+            rgba(3, 13, 24, 0.35)
+        ),
+        url("images/silver-car.png");
+
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(85, 185, 255, 0.2);
+    
+}
+
+.mechanical-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(131, 194, 255, 0.45);
+    
+}
+
+.mechanical-number {
+    color: #83c2ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.mechanical-card-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 28px 0 20px;
+    border: 1px solid rgba(131, 194, 255, 0.23);
+    border-radius: 12px;
+    background: rgba(77, 157, 229, 0.09);
+    color: #8bc8ff;
+    font-size: 27px;
+}
+
+.mechanical-card h3 {
+    margin-bottom: 12px;
+    color: #f4f7fb;
+    font-family: "Manrope", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.mechanical-card p {
+    min-height: 78px;
+    margin-bottom: 24px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.mechanical-card a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 17px;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    color: #8bc8ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.mechanical-card a span {
+    transition: transform 0.25s ease;
+}
+
+.mechanical-card a:hover span {
+    transform: translate(3px, -3px);
+}
+
+.mechanical-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 30px;
+    padding: 25px 30px;
+    border: 1px solid rgba(155, 190, 220, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.mechanical-bottom p {
+    margin: 0;
+    color: #b8c2ce;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.mechanical-bottom .text-link {
+    flex-shrink: 0;
+    color: #8bc8ff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@keyframes mechanical-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.mechanical-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 650px;
+    margin: 80px 5%;
+    overflow: hidden;
+    border: 1px solid rgba(131, 194, 255, 0.15);
+    border-radius: 22px;
+    background: #0b1118;
+}
+
+/* Workshop image */
+
+.mechanical-showcase-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 650px;
+    padding: 35px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5, 10, 16, 0.15),
+            rgba(5, 10, 16, 0.58)
+        ),
+        url("images/mechinical-div.png") center / cover no-repeat,
+        #18232e;
+}
+
+.showcase-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        transparent 65%,
+        rgba(11, 17, 24, 0.35)
+    );
+}
+
+.showcase-image-label,
+.showcase-image-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+.showcase-image-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e7f3ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.showcase-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #83c2ff;
+    box-shadow: 0 0 15px rgba(131, 194, 255, 0.8);
+}
+
+.showcase-image-bottom > span {
+    color: #91caff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.showcase-image-bottom h3 {
+    margin: 15px 0 0;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(35px, 4vw, 58px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+/* Right content */
+
+.mechanical-showcase-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(30px, 5vw, 65px);
+}
+
+.mechanical-showcase-content h2 {
+    margin: 22px 0 18px;
+    color: #f5f8fc;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(30px, 3.2vw, 45px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.mechanical-showcase-content h2 span {
+    display: block;
+    color: #83c2ff;
+}
+
+.showcase-description {
+    margin-bottom: 28px;
+    color: #aab6c4;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.showcase-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.showcase-feature-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border: 1px solid rgba(131, 194, 255, 0.25);
+    border-radius: 12px;
+    color: #83c2ff;
+    background: rgba(131, 194, 255, 0.07);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.showcase-feature h4 {
+    margin: 0 0 7px;
+    color: #f4f7fb;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.showcase-feature p {
+    margin: 0;
+    color: #9ba9b9;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.showcase-cta {
+    margin-top: 30px;
+}
+
+.showcase-note {
+    margin-top: 18px;
+    color: #74869a;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+    line-height: 1.7;
+}
+
+
 /* =========================================================
    ABOUT
 ========================================================= */
@@ -2141,10 +2719,10 @@ h1 em {
 
         linear-gradient(
             rgba(5, 12, 18, 0.35),
-            rgba(5, 12, 18, 0.35)
+            rgba(5, 12, 18, 0.15)
         ),
 
-        url("images/tt\ panelbeater.jpeg")
+        url("images/TTS-ABOUT.jpg")
         center / cover no-repeat;
         
     position:
@@ -3330,6 +3908,37 @@ footer p {
 
 @media (max-width: 900px) {
 
+       .mechanical-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .mechanical-showcase-image {
+        min-height: 420px;
+    }
+
+    .mechanical-showcase-content {
+        padding: 40px;
+    }
+
+
+    .mechanical-banner {
+        grid-template-columns: 1fr 0.7fr;
+    }
+
+    .mechanical-banner-content {
+        padding: 35px;
+    }
+
+    .mechanical-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+
+
+
+
+
     .nav {
 
         gap:
@@ -3407,9 +4016,105 @@ footer p {
 
 }
 
+    @media (prefers-reduced-motion: reduce) {
+    .ring-two {
+        animation: none;
+    }
+
+    .mechanical-card,
+    .mechanical-card a span {
+        transition: none;
+    }
+}
 
 
 @media (max-width: 768px) {
+
+     .logo {
+        gap: 8px;
+        font-size: 21px;
+    }
+
+    .logo-img {
+        width: 1Z42px;
+        height: 142px;
+    }
+
+
+     .mechanical-showcase {
+        margin: 45px 5%;
+        border-radius: 16px;
+    }
+
+    .mechanical-showcase-image {
+        min-height: 340px;
+        padding: 24px;
+    }
+
+    .mechanical-showcase-content {
+        padding: 28px 22px;
+    }
+
+    .showcase-image-bottom h3 {
+        font-size: 39px;
+    }
+
+    .showcase-cta {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mechanical-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .mechanical-banner-content {
+        padding: 30px 24px 15px;
+    }
+
+    .mechanical-visual {
+        min-height: 230px;
+    }
+
+    .mechanical-ring {
+        width: 190px;
+        height: 190px;
+    }
+
+    .ring-two {
+        width: 145px;
+        height: 145px;
+    }
+
+    .mechanical-icon {
+        width: 110px;
+        height: 110px;
+    }
+
+    .mechanical-icon svg {
+        width: 68px;
+        height: 68px;
+    }
+
+    .mechanical-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mechanical-card {
+        padding: 25px;
+    }
+
+    .mechanical-card p {
+        min-height: 0;
+    }
+
+    .mechanical-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 24px;
+    }
+
 
 
 
@@ -3501,7 +4206,7 @@ footer p {
 
         height:
             72px;
-
+        padding: 10px;
     }
 
 

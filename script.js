@@ -9,6 +9,8 @@
    SELECT ELEMENTS
 ========================================================= */
 
+
+
 const header = document.getElementById("header");
 
 const menuBtn = document.getElementById("menuBtn");
@@ -304,3 +306,38 @@ vehicleImages.addEventListener("change", function () {
     });
 
 });    
+
+
+
+const serviceType = document.querySelector("#serviceType");
+
+document.querySelectorAll("[data-service]").forEach(link => {
+    link.addEventListener("click", () => {
+        if (serviceType) {
+            serviceType.value = link.dataset.service;
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const lenis = new Lenis({
+        duration: 1.15,
+        smoothWheel: true,
+        wheelMultiplier: 0.4,
+        touchMultiplier: 1,
+        lerp: 0.08,
+        orientation: "vertical",
+        gestureOrientation: "vertical"
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Make Lenis available for optional navigation controls.
+    window.lenis = lenis;
+});s
